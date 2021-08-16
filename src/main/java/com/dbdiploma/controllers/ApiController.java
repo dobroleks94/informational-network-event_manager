@@ -1,14 +1,11 @@
 package com.dbdiploma.controllers;
 
 import com.dbdiploma.entities.DataSetDTO;
-import com.dbdiploma.entities.Hardware;
-import com.dbdiploma.entities.Software;
 import com.dbdiploma.services.EventService;
 import com.dbdiploma.services.HardwareService;
 import com.dbdiploma.services.HostService;
 import com.dbdiploma.services.SoftwareService;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
 
 
 @RestController
@@ -46,7 +41,6 @@ public class ApiController {
 
     @RequestMapping(value = "/hosts", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DataSetDTO> getHosts(){
-
         return hostService.getAllHosts().stream()
                 .map(host -> {
                     long hardwareCount = host.getHardwareList().size();
@@ -61,7 +55,6 @@ public class ApiController {
 
     @RequestMapping(value = "/yAxesMax", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public int getYAxesMax(){
-
         return hostService.getAllHosts().stream()
                 .map(host -> {
                     int hardwareCount = host.getHardwareList().size();

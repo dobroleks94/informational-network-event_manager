@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 
 @Controller
@@ -23,9 +20,6 @@ public class HostController {
 
     private final HostService hostService;
     private final UserService userService;
-    private final HardwareService hardwareService;
-    private final SoftwareService softwareService;
-    private final EventService eventService;
 
 
     @ModelAttribute("user")

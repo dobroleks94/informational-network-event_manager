@@ -2,7 +2,7 @@ package com.dbdiploma.controllers;
 
 import com.dbdiploma.entities.ErrorEvent;
 import com.dbdiploma.entities.ErrorEventDTO;
-import com.dbdiploma.entities.EventDedication;
+import com.dbdiploma.entities.enums.EventDedication;
 import com.dbdiploma.services.EventService;
 import com.dbdiploma.services.HostService;
 import lombok.AllArgsConstructor;

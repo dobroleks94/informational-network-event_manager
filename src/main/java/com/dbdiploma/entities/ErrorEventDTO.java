@@ -1,5 +1,6 @@
 package com.dbdiploma.entities;
 
+import com.dbdiploma.entities.enums.EventDedication;
 import lombok.Data;
 
 @Data

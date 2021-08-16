@@ -1,4 +1,4 @@
-package com.dbdiploma.entities;
+package com.dbdiploma.entities.enums;
 
 import lombok.Getter;
 

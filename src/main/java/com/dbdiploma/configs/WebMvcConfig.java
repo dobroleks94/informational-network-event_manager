@@ -1,13 +1,7 @@
 package com.dbdiploma.configs;
 
-
-import com.dbdiploma.entities.User;
-import com.dbdiploma.repositories.UserRepository;
-import com.dbdiploma.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Description;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

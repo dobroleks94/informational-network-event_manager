@@ -1,7 +1,6 @@
 package com.dbdiploma.controllers;
 
 import com.dbdiploma.entities.Hardware;
-import com.dbdiploma.entities.Host;
 import com.dbdiploma.entities.User;
 import com.dbdiploma.security.CurrentUser;
 import com.dbdiploma.security.Principal;

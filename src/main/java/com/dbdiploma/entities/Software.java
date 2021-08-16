@@ -1,5 +1,6 @@
 package com.dbdiploma.entities;
 
+import com.dbdiploma.entities.enums.SoftwareType;
 import lombok.Getter;
 import lombok.Setter;
 

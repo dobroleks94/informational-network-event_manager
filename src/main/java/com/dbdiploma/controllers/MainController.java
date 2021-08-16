@@ -1,11 +1,9 @@
 package com.dbdiploma.controllers;
 
-import com.dbdiploma.entities.Hardware;
 import com.dbdiploma.entities.InfoDTO;
 import com.dbdiploma.entities.User;
 import com.dbdiploma.services.*;
 import lombok.AllArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;

@@ -6,11 +6,9 @@ import com.dbdiploma.entities.Host;
 import com.dbdiploma.entities.Software;
 import com.dbdiploma.repositories.EventRepository;
 import lombok.AllArgsConstructor;
-import org.hibernate.boot.spi.SessionFactoryOptions;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -18,8 +16,6 @@ import java.util.List;
 public class EventService {
 
     private final EventRepository eventRepository;
-    private final SoftwareService softwareService;
-    private final HardwareService hardwareService;
 
     public Host updateHostSoftwareForEvent(ErrorEvent errorEvent, String softwareUUID, Host host){
 

@@ -28,12 +28,4 @@ public class UserService {
     public Optional<User> findByEmail(String email) {
         return userRepository.getUserByEmail(email);
     }
-
-    public User findById(long id) {
-        return userRepository.getOne(id);
-    }
-
-    public BCryptPasswordEncoder getPasswordEncoder() {
-        return passwordEncoder;
-    }
 }

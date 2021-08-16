@@ -31,15 +31,6 @@ public class HardwareService {
         return hardwareRepository.save(hardware);
     }
 
-    public Hardware prepareToDelete(Hardware hardware) {
-        if (hardware.getOwnerHost() != null)
-            hardware.getOwnerHost()
-                    .getHardwareList()
-                    .removeIf(hardw -> hardw.getUuid().equals(hardware.getUuid()));
-        hardware.setOwnerHost(null);
-        return hardware;
-    }
-
     public Hardware updateHardware(Hardware newHrdw, Hardware oldHrdw){
 
         newHrdw.setId(oldHrdw.getId());

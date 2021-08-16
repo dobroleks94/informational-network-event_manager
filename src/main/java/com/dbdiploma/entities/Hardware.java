@@ -1,5 +1,6 @@
 package com.dbdiploma.entities;
 
+import com.dbdiploma.entities.enums.Producer;
 import lombok.Getter;
 import lombok.Setter;
 
