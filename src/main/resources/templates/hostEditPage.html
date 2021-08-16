@@ -1,0 +1,252 @@
+<!doctype html>
+<html class="no-js h-100" lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Редагування</title>
+    <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" th:href="@{/styles/shards-dashboards.1.1.0.min.css}">
+    <link rel="stylesheet" th:href="@{/styles/extras.1.1.0.min.css}">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </head>
+  <body class="h-100">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar col-12 col-md-3 col-lg-3 px-0">
+          <div class="main-navbar">
+            <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+              <a class="navbar-brand w-100 mr-0" style="line-height: 25px;" href="/">
+                <div class="d-table m-auto">
+                  <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" th:src="@{/images/shards-dashboards-logo.svg}" alt="Shards Dashboard">
+                  <span class="d-none d-md-inline ml-1">ОБЛІК подій ІМ</span>
+                </div>
+              </a>
+            </nav>
+          </div>
+          <div class="nav-wrapper">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link " href="/">
+                  <i class="material-icons">home</i>
+                  <span>Головна</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/hosts/all">
+                  <i class="material-icons">settings_input_antenna</i>
+                  <span>Зареєстровані хости</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/hardware/all">
+                  <i class="material-icons">router</i>
+                  <span>Список апаратного забезпечення</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/software/all">
+                  <i class="material-icons">api</i>
+                  <span>Список програмного забезпечення на ПЕОМ</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/events/all">
+                  <i class="material-icons">error</i>
+                  <span>Події</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/signout">
+                  <i class="material-icons">logout</i>
+                  <span>Вихід</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-9 col-md-9 p-0 offset-lg-3">
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-6 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Облік подій ІМ</span>
+                <h3 class="page-title">Редагування хоста</h3>
+              </div>
+            </div>
+            <!-- End Page Header -->
+            <!-- Default Light Table -->
+            <form method="post" th:action="${'/hosts/edit/' + host.uuid}" th:object="${host}">
+              <div class="row">
+                <div class="col-lg-12 mx-auto">
+                  <div class="card card-small mb-4">
+                      <div class="card-header border-bottom">
+                        <div class="row">
+                          <i class="material-icons ml-3 mr-2">settings_input_antenna</i>
+                          <h6 class="m-0" th:text="'Інформація по хосту ' + ${host.hostName == null ? '' : host.hostName}">Account Details</h6>
+                        </div>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item p-3">
+                          <div class="row">
+                            <div class="col">
+                                <div class="form-row justify-content-center">
+                                  <div class="form-group col-md-6">
+                                    <label for="hostName">Ім'я хоста</label>
+                                    <input type="text" class="form-control" id="hostName" placeholder="Доменне ім'я"  th:field="*{hostName}" th:value="*{hostName}"> </div>
+                                  <div class="form-group col-md-6">
+                                    <label for="ipAddress">ІР Адреса хоста</label>
+                                    <input type="text" class="form-control" id="ipAddress" placeholder="ІР адреса" th:field="*{ipAddress}" th:value="*{ipAddress}"> </div>
+                                  <div class="form-group col-md-4">
+                                    <input type="hidden" class="form-control" th:field="*{registrationDate}" th:value="*{registrationDate}"> </div>
+                                  <div class="form-group col-md-4">
+                                    <input type="hidden" class="form-control" th:field="*{uuid}" th:value="*{uuid}"> </div>
+                                  <div class="form-group col-md-4">
+                                    <input type="hidden" class="form-control" th:field="*{id}" th:value="*{id}"> </div>
+                                  <div class="form-group col-md-4">
+                                    <a href="/hosts/new/hardware" th:if="${host.userEmails().contains(user?.getEmail())}">
+                                      <button type="button" class="btn col-md-12 btn-outline-accent">Додати нове апаратне забезпечення</button>
+                                    </a>
+                                  </div>
+                                  <div class="form-group col-md-4" th:if="${host.userEmails().contains(user?.getEmail())}">
+                                    <a href="/hosts/new/software">
+                                      <button type="button" class="btn col-md-12 btn-outline-accent">Додати нове програмне забезпечення</button>
+                                    </a>
+                                  </div>
+                                  <div class="form-group col-md-4" th:if="${host.userEmails().contains(user?.getEmail()) and (!host.getSoftwareList().isEmpty() or !host.getHardwareList().isEmpty())}">
+                                    <a href="/hosts/new/event">
+                                      <button type="button" class="btn col-md-12 btn-outline-accent">Додати нову подію</button>
+                                    </a>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                  </div>
+                </div>
+
+                <div class="col-lg-12 mx-auto">
+                  <button type="submit" class="btn col-md-12 btn-accent"><i class="fa fa-save mr-2"></i> Зберегти зміни параметрів хоста</button>
+                </div>
+                <div class="col-lg-6 mx-auto mt-4">
+                  <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                      <h6 class="m-0">Апаратне забезпечення хоста</h6>
+                    </div>
+                    <div class="card-body p-0 pb-3 text-center">
+                      <table class="table mb-0">
+                        <thead class="bg-light">
+                        <tr>
+                          <th scope="col" class="border-0">№</th>
+                          <th scope="col" class="border-0">Назва АЗ</th>
+                          <th scope="col" class="border-0">Серійний номер</th>
+                          <th scope="col" class="border-0">Виробник</th>
+                          <th scope="col" class="border-0">К-сть подій</th>
+                          <th scope="col" class="border-0"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="hardw: ${host.getHardwareList()}">
+                          <td class="text-center" th:text="${hardw?.id}">1</td>
+                          <td class="text-center" th:text="${hardw?.hardwareName}"></td>
+                          <td class="text-center" th:text="${hardw?.serialNumber}"></td>
+                          <td class="text-center" th:text="${hardw?.producer?.name()}"></td>
+                          <td class="text-center" th:text="${hardw?.errorEvents?.size()}"></td>
+                          <td class="text-center">
+                            <li class="mr-3" style="list-style: outside; width: auto; display: inline-block; cursor: pointer">
+                              <a th:href="'/hardware/edit/' + ${hardw.uuid} + '?edit=true'">
+                                <i class="material-icons">edit</i>
+                              </a>
+                            </li>
+                            <li class="mr-3" style="list-style: outside; width: auto; display: inline-block; cursor: pointer">
+                              <a th:href="'/hardware/detach/' + ${hardw.uuid}">
+                                <i class="fa fa-times text-danger"></i>
+                              </a>
+                            </li>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mx-auto mt-4">
+                  <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                      <h6 class="m-0">Програмне забезпечення хоста</h6>
+                    </div>
+                    <div class="card-body p-0 pb-3 text-center">
+                      <table class="table mb-0">
+                        <thead class="bg-light">
+                        <tr>
+                          <th scope="col" class="border-0">№</th>
+                          <th scope="col" class="border-0">Назва ПЗ</th>
+                          <th scope="col" class="border-0">Ліцензія</th>
+                          <th scope="col" class="border-0">Тип ПЗ</th>
+                          <th scope="col" class="border-0">К-сть подій</th>
+                          <th scope="col" class="border-0"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="softw: ${host.getSoftwareList()}">
+                          <td class="text-center" th:text="${softw?.id}">1</td>
+                          <td class="text-center" th:text="${softw?.softwareName}"></td>
+                          <td class="text-center" th:text="${softw?.licence ? 'Активовано' : 'Не активовано'}"></td>
+                          <td class="text-center" th:text="${softw?.softwareType.softwareName}"></td>
+                          <td class="text-center" th:text="${softw?.errorEvents?.size()}"></td>
+                          <td class="text-center">
+                            <li class="mr-3" style="list-style: outside; width: auto; display: inline-block; cursor: pointer">
+                              <a th:href="'/software/edit/' + ${softw.uuid} + '?edit=true'">
+                                <i class="material-icons">edit</i>
+                              </a>
+                            </li>
+                            <li class="mr-3" style="list-style: outside; width: auto; display: inline-block; cursor: pointer">
+                              <a th:href="'/software/detach/' + ${softw.uuid}">
+                                <i class="fa fa-times text-danger"></i>
+                              </a>
+                            </li>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- End Default Light Table -->
+          </div>
+        </main>
+      </div>
+    </div>
+    <script type="application/javascript">
+      function showDevices(element) {
+        console.log(element.value)
+        if (element.value === 'HARDWARE_EVENT'){
+          document.getElementById('hardwares').classList.add('disabled');
+          document.getElementById('softwares').classList.remove('disabled');
+        }
+        if (element.value === 'SOFTWARE_EVENT'){
+          document.getElementById('softwares').classList.add('disabled');
+          document.getElementById('hardwares').classList.remove('disabled');
+        }
+        document.getElementById('hardwares').style.display = element.value === 'HARDWARE_EVENT' ? 'block' : 'none';
+        document.getElementById('softwares').style.display = element.value === 'SOFTWARE_EVENT' ? 'block' : 'none';
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+    <script th:src="@{/scripts/extras.1.1.0.min.js}"></script>
+    <script th:src="@{/scripts/shards-dashboards.1.1.0.min.js}"></script>
+  </body>
+</html>
