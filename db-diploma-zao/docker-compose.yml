@@ -3,9 +3,6 @@ version: '3.3'
 services:
   diploma:
     container_name: diploma-app
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
     image: dobroleks94/diploma-zao:latest
     ports:
       - "2701:8080"
