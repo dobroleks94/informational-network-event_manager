@@ -20,7 +20,7 @@ public class MainController {
     private final SoftwareService softwareService;
     private final EventService eventService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = {"/home", "/"}, method = RequestMethod.GET)
     public String homePage(Model model){
         long hostCount = hostService.getHostsCount();
         long hardwareCount = hardwareService.getHardwareCount();

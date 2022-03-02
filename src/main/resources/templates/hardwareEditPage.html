@@ -111,7 +111,7 @@
                                 <select class="form-control select"
                                         th:field="*{producer}"
                                         th:value="*{producer}">
-                                  <option th:each="producer: ${T(com.dbdiploma.entities.Producer).values()}"
+                                  <option th:each="producer: ${T(com.dbdiploma.entities.enums.Producer).values()}"
                                           th:value="${producer}"
                                           th:text="${producer.name()}">
                                   </option>

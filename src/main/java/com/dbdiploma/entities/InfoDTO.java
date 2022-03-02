@@ -23,4 +23,8 @@ public class InfoDTO {
 
         return infoDTO;
     }
+
+    public boolean isEmpty() {
+        return this.hardwareCount == 0 && this.softwareCount == 0 && this.errorEventsCount == 0;
+    }
 }

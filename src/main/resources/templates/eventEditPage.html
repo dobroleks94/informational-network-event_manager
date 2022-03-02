@@ -111,7 +111,7 @@
                                 <select id="choice" class="form-control select" onchange="showDevices(this)"
                                         th:field="*{eventDedication}"
                                         th:value="${errorEvent.eventDedication}">
-                                  <option th:each="ev: ${T(com.dbdiploma.entities.EventDedication).values()}"
+                                  <option th:each="ev: ${T(com.dbdiploma.entities.enums.EventDedication).values()}"
                                           th:value="${ev}"
                                           th:text="${ev.getName()}">
                                   </option>
@@ -119,7 +119,7 @@
                               </div>
                               <div id="hardwares" style="display: block" class="form-group col-md-12" >
                                 <select class="form-control select"
-                                        th:unless="${host.getHardwareList().isEmpty()}"
+                                        th:unless="${host.getHardwareList()?.isEmpty()}"
                                         th:field="*{hardwareUUID}"
                                         th:value="*{hardwareUUID}">
                                   <option th:each="dev: ${host.getHardwareList()}"
@@ -130,7 +130,7 @@
                               </div>
                               <div id="softwares" style="display: none" class="form-group col-md-12 disabled">
                                 <select class="form-control select"
-                                        th:unless="${host.getSoftwareList().isEmpty()}"
+                                        th:unless="${host.getSoftwareList()?.isEmpty()}"
                                         th:field="*{softwareUUID}"
                                         th:value="*{softwareUUID}">
                                   <option th:each="dev: ${host.getSoftwareList()}"

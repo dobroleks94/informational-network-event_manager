@@ -113,7 +113,7 @@
                                 <select class="form-control select"
                                         th:field="${software.softwareType}"
                                         th:value="${software.softwareType}">
-                                  <option th:each="type: ${T(com.dbdiploma.entities.SoftwareType).values()}"
+                                  <option th:each="type: ${T(com.dbdiploma.entities.enums.SoftwareType).values()}"
                                           th:value="${type}"
                                           th:text="${type.getSoftwareName()}">
                                   </option>

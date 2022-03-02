@@ -21,7 +21,7 @@ public class Hardware {
     private String hardwareName;
     private String serialNumber;
     private Producer producer;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<ErrorEvent> errorEvents;
     @ManyToOne
     private Host ownerHost;

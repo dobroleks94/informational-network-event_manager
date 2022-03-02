@@ -24,7 +24,7 @@ public class Host {
     private String ipAddress;
     @CreationTimestamp
     private LocalDate registrationDate;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<User> users;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Hardware> hardwareList;

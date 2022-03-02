@@ -143,8 +143,9 @@
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Звіт по зареєстрованих хостах</h6>
                   </div>
-                  <div class="card-body pt-0">
-                    <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
+                  <div class="card-body pt-0" style="display: flex; justify-content: center;">
+                    <canvas th:unless="${infoDTO.isEmpty()}" height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
+                    <img th:if="${infoDTO.isEmpty()}" src="images/empty.png">
                   </div>
                 </div>
               </div>
@@ -155,8 +156,9 @@
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Звіт по обліку</h6>
                   </div>
-                  <div class="card-body d-flex py-0">
-                    <canvas height="220" class="blog-users-by-device m-auto"></canvas>
+                  <div class="card-body d-flex py-0" style="display: flex; justify-content: center;">
+                    <canvas th:unless="${infoDTO.isEmpty()}" height="220" class="blog-users-by-device m-auto"></canvas>
+                    <img th:if="${infoDTO.isEmpty()}" src="images/empty.png">
                   </div>
                 </div>
               </div>
