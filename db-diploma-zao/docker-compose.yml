@@ -3,8 +3,11 @@ version: '3.3'
 services:
   diploma:
     container_name: diploma-app
+#    build: ../
     image: dobroleks94/diploma-zao:latest
     ports:
       - "2701:8080"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=local"
     restart: always
 
